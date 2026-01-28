@@ -1,22 +1,27 @@
-/* variaveis VAR */
+/* ============================= */
+/* DESIGN SYSTEM / VARIÁVEIS     */
+/* ============================= */
 :root {
-    --bg-color: #191919;
-    /*--bg-color: #0c0030;*/
-    --second-bg-color: #1e0064;
-    --text-color: white;
-    --second-color: white;
-    --main-color: #96088f;
-    --big-font: 5rem;
-    --h2-font: 3rem;
-    --p-font: 1.1rem;
-    --p-small-font: 0.9rem;
+    --bg-color: #0f172a;
+    --second-bg-color: #020617;
+    --text-color: #e5e7eb;
+    --second-color: #94a3b8;
+    --main-color: #38bdf8;
+    --hover-color: #7dd3fc;
+    --border-color: #1e293b;
 
+    --big-font: clamp(2.5rem, 5vw, 3.5rem);
+    --h2-font: clamp(2rem, 4vw, 2.5rem);
+    --p-font: 1rem;
+    --p-small-font: 0.9rem;
 }
 
-/* ESTILIZAÇÃO DE TODA A PAGINA */
+/* ============================= */
+/* RESET & BASE                  */
+/* ============================= */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
@@ -24,596 +29,313 @@
     scroll-behavior: smooth;
 }
 
-
-/* FONTE, FUNDO, E TAMANHO DO CORPO */
 body {
-    
-    font-size: 15px;
     background-color: var(--bg-color);
-    background-size: auto;
-}
-
-.show-button .button-up {
-    display: flex;
-}
-
-.button-up {
-    display: none;
-    background-color: var(--main-color);
-    border-radius: 10%;
-    padding: 0.5rem 0.5rem;
-    position: fixed;
-    z-index: 1000;
-    left: 3rem;
-    top: 600px;
-
-}
-
-.button-up span {
     color: var(--text-color);
-}
-.button-up :hover{
-    background-color: #a61f8c;
-    color: #191919;
-    border-radius: 40%;
+    font-size: 15px;
 }
 
-/* AQUI COMEÇA O MENU */
+/* ============================= */
+/* HEADER / MENU                 */
+/* ============================= */
 .center {
     display: flex;
-    flex-wrap: wrap;
-    max-width: auto;
-    margin: 0 auto;
-    padding: 0 2%;
-    z-index: 2;
-
+    align-items: center;
+    padding: 1rem 2%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .logo {
-    flex-grow: 1;
-    /* Permite que a logo ocupe o espaço restante */
-    max-width: 200px;
-    /* Define a largura máxima da logo */
+    max-width: 180px;
 }
 
 .logo img {
-    max-width: 100%;
-    /* Garante que a imagem da logo se ajuste ao contêiner */
-    height: auto;
-
-    /* Permite que a altura seja ajustada automaticamente */
+    width: 100%;
 }
 
-/* TAMANHO O CABEÇALHO */
 .menu {
-    width: auto;
-    /* Permitir que o menu ocupe o espaço restante */
     margin-left: auto;
-    /* Alinhar o menu à direita */
     display: flex;
-    justify-content: flex-end;
-    /* Alinhar os itens do menu à direita */
-    align-items: center;
-    /* Alinhar verticalmente os itens do menu */
+    gap: 1.5rem;
 }
 
 .menu a {
-    margin: 0 15px;
-    /* Espaçamento entre os itens do menu */
-    font-size: 20px;
     color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .menu a:hover {
     color: var(--main-color);
 }
 
+/* ============================= */
+/* BOTÃO SCROLL TOP              */
+/* ============================= */
+.button-up {
+    display: none;
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    background-color: var(--main-color);
+    padding: 0.6rem;
+    border-radius: 8px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
 
-/* CORPO PRINCIPAL */
+.button-up.show {
+    display: block;
+}
 
-/* TAMANHO E POSIÇÃO DA PAGINA PRINCIPAL */
+
+/* ============================= */
+/* HOME                          */
+/* ============================= */
 .home {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Empilhar os elementos verticalmente em dispositivos menores */
-    align-items: center; /* Alinhar os elementos horizontalmente */
-    padding: 5% 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding-top: 80px; /* Compensar header fixo */
+}
+section {
+    scroll-margin-top: 90px;
 }
 
-.home {
-    
-    /* Adiciona um pouco de preenchimento aos lados para evitar que o texto fique muito próximo das bordas */
-    text-align: justify;
-    color: var(--text-color);
+
+.home h1 {
+    font-size: var(--big-font);
 }
 
-.home h2 {
-  
-    font-size: 2rem;
-    text-shadow: var(--main-color) 2px 2px;
+.home h2,
+.home h3 {
+    color: var(--second-color);
 }
 
 .home span {
-    background-color: #96088f;
-    padding: 0.2em 0.5em;
-    border-radius: 10%;
+    color: var(--main-color);
 }
 
-.home h1 {
-    
-    font-size: 3.5rem;
-    margin: 20px 0;
-    text-shadow: var(--main-color) 2px 2px;
-}
-
-.home h3 {
-    font-size: 2rem;
-    margin: 10px 0;
-    text-shadow: var(--main-color) 2px 2px;
-   
-    
-}
-.home h4{
-    color: #a61f8c;
-    font-size: 3.5rem;
-    text-shadow: var(--bg-color) 2px 2px;
-}
 .links {
-    display: flex; /* Exibir os links na mesma linha */
-    padding: 3rem;
-            
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .home a {
-    display: inline-block;
-    font-size: 1rem;
-    background-color: #96088f;
-    text-shadow: black 2px 2px;
-    color: white;
-    padding: 30px 40px;
-    text-decoration: none;
-    margin-right: 6rem; /* Adiciona um espaço entre os botões */
-    margin-left: 6rem;
-    border-radius: 100%;
-    
-}
-.links :hover{
-    
-    background-color: #a61f8c;
-    transform: scale(1.05);
+    padding: 12px 36px;
+    border-radius: 999px;
+    background-color: var(--main-color);
+    color: var(--second-bg-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent; /* Evita pulo no hover */
 }
 
-.home-img {
-    position:static;
-    max-width: 100%;
-    bottom: 0%;
-    /* Garante que a imagem seja responsiva */
-    overflow: hidden; /* Oculta qualquer conteúdo que se estenda além da altura definida */
-    
-}
-.home-img img {
-    display: block;
-    width: auto; /* Permite que a largura seja ajustada automaticamente */
-    height: 100%; /* Preenche a altura da div .home-img */
-    margin: 0 auto;
+.home a:hover {
+    background-color: transparent;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    transform: translateY(-4px);
 }
 
-
-/* ESTILIZANDO SOBRE MIM */
-
-.about {
+/* ============================= */
+/* ABOUT & EXPERIENCE            */
+/* ============================= */
+.about,
+.experience {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    /* Torna o layout mais flexível */
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    /* Reduz o espaçamento entre os elementos */
-    padding: 10% 2%;
+    gap: 3rem;
+    padding: 5rem 2rem;
 }
 
-
-/* ESTILIZANDO IMG SOBRE MIM */
-
-
-.about-img img {
-    max-width: 80%;
-    /* Garante que a imagem seja responsiva */
-    height: auto;
-    border-radius: 30px;
-    box-shadow: var(--main-color) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+.about-img img,
+.experience-img img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-/* ESTILIZANDO TEXTO SOBRE MIM */
-.about-text {
-    padding: 0 20px;
-    /* Adiciona um pouco de preenchimento aos lados para evitar que o texto fique muito próximo das bordas */
+.about-text,
+.experience-text {
     text-align: justify;
-    color: var(--text-color);
 }
 
-.about-text h2 {
-    font-size: 2.5rem;
-    /* Reduz o tamanho da fonte para dispositivos menores */
-    margin: 20px 0;
-    /* Reduz a margem superior e inferior */
+.about-text h2,
+.experience-text h2,
+.prj-text h2 {
+    font-size: var(--h2-font);
     text-align: center;
+    margin-bottom: 1.5rem;
 }
 
-.about-text h4 {
-    font-size: 1rem;
-    /* Reduz o tamanho da fonte para dispositivos menores */
-    margin: 10px 0;
-    /* Reduz a margem superior e inferior */
+.about-text p,
+.experience-text p {
+    font-size: var(--p-font);
+    line-height: 1.7;
+    color: var(--second-color);
+    margin-bottom: 1.2rem;
 }
 
-.about-text a {
-    font-size: 0.9rem;
-    /* Reduz o tamanho da fonte para dispositivos menores */
-    line-height: 1.5;
-    margin-bottom: 2rem;
+.experience-highlight {
+    color: var(--main-color) !important;
+    font-weight: 600;
 }
 
-.about-text p {
-    font-size: 0.9rem;
-    /* Reduz o tamanho da fonte para dispositivos menores */
-    line-height: 1.5;
-    margin-bottom: 2rem;
-}
-
-.about-text span {
-    color: #96088f;
-}
-
-/* Adicione media queries conforme necessário para estilos específicos de dispositivos móveis */
-
-
-/* SKILLS DE PROGRAMAÇÃO */
+/* ============================= */
+/* SKILLS                        */
+/* ============================= */
 .skills {
-    background-color: var(--bg-color);
-    padding: auto;
-    padding-bottom: 4rem;
+    padding: 5rem 2rem;
 }
 
 .skills-text {
     text-align: center;
-    color: var(--text-color);
-    padding-top: 4rem;
-}
-
-.skills-text-span {
-    color: var(--main-color);
-}
-
-.skills-text-span h1 {
-    color: var(--text-color);
+    margin-bottom: 3rem;
 }
 
 .box-content {
-    padding: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-    align-items: center;
-    gap: 2.5rem;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
 }
 
 .skills-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 300px;
-    max-height: 300px;
-    min-height: 200px;
+    background-color: var(--second-bg-color);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
     text-align: center;
-    background: var(--main-color);
-    padding: 35px 45px;
-    border-radius: 8px;
-    transition: all .45s ease;
-    margin-left: 35px;
-    margin-right: 35px;
-    transition: transform 0.5s;
-
+    transition: transform 0.3s ease;
 }
 
 .skills-box:hover {
-    transform: scale(1.05);
+    transform: translateY(-6px);
+    border-color: var(--main-color);
 }
 
 .skills-box h3 {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text-color);
+    margin-top: 1rem;
+    color: var(--main-color);
 }
-
 .box-icons {
-
-    text-align: center;
-
+    width: 70px;
+    height: 70px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
 }
 
 .box-icons img {
-    font-size: 30px;
-    color: var(--second-color);
+    width: 40px;
+    height: auto;
+}
+.skills-box:hover .box-icons {
+    transform: scale(1.05);
 }
 
-/* DIV PARA SEPARAR */
 
-.space {
-    border-style: groove;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 0px;
-    border-color: #fff;
-}
 
-/* PORTIFOLIO */
+/* ============================= */
+/* PORTFÓLIO                     */
+/* ============================= */
 .prj-box {
-    background-color: var(--bg-color);
-    padding: auto;
-    padding-bottom: 4rem;
-
+    padding: 5rem 2rem;
 }
 
 .prj-text {
     text-align: center;
-    color: var(--text-color);
-    padding-top: 4rem;
-}
-
-.prj-text-span {
-    color: var(--main-color);
-}
-
-.prj-text-span h1 {
-    color: var(--text-color);
+    margin-bottom: 3rem;
 }
 
 .prj-container {
-    padding: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
-    align-items: center;
-    gap: 2.5rem;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
 }
 
 .prj-box-i {
-    margin-left: 2rem;
-    margin-right: 2rem;
     position: relative;
+    border-radius: 12px;
     overflow: hidden;
-    border-radius: 10px;
-    cursor: pointer;
-
+    min-height: 250px; /* Garante altura mesmo sem imagem */
+    background-color: var(--second-bg-color);
+    border: 1px solid var(--border-color);
 }
 
-.prj-box-i img {
-    max-width: 350px;
-    min-width: 100%;
-    min-height: 375px;
-    max-height: 375px;
-    border-radius: 10px;
-    transition: transform 1.5s;
-}
-
-.prj-box-i img:hover {
-    transform: scale(1.5);
-}
-
-
-.layer {
-    width: 100%;
-    height: 0%;
-    background: linear-gradient(rgba(0, 0, 0, 0.9), var(--main-color));
-    position: absolute;
-    border-radius: 10px;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: justify;
-    padding: 0 40px;
-    transition: height 0.5s;
-}
-
-.prj-box-i:hover .layer {
-    overflow: visible;
-    height: 100%;
-}
-
-.layer h5 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: var(--text-color);
-}
-
-.layer p {
-    color: var(--second-color);
-    font-size: var(--p-small-font);
-    line-height: 1.8;
-
-}
-
-.layer a {
-    align-items: end;
-    font-size: large;
-}
-
-.btn_acessar:hover {
-    text-decoration: underline;
-    color: aqua;
-
-}
-
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-/* RODAPÉ */
+/* ============================= */
+/* FOOTER                        */
+/* ============================= */
 footer {
-    padding: auto;
-    border-style: groove;
-    border-left: 0px;
-    border-right: 0px;
-    border-bottom: 0px;
-    border-color: #fff;
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
 }
 
 .contact {
-    letter-spacing: 1px;
+    padding: 3rem 2rem;
     text-align: center;
-    padding: 20px 15%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2rem;
-    background-color: var(--bg-color);
-}
-
-.social {
-    color: white;
-    text-align: center;
-    font-size: var(--p-font);
-
-}
-
-.social-buttons {
-    margin: 20px;
-
 }
 
 .social-button {
     display: inline-block;
-    margin: 10px;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
 
+.social-button:hover {
+    transform: translateY(-5px);
 }
 
 .social-button img {
-    width: 60px;
-    height: 60px;
-    background-color: #fff;
-    border: 2px solid #fff;
-    border-radius: 60%;
-
-}
-
-.end {
-    text-align: center;
-}
-
-.end a {
-    text-align: right;
-    color: #fff;
+    width: 40px;
+    border-radius: 50%;
 }
 
 .end-end {
-    padding: 1rem 1rem;
-    color: var(--text-color);
-    font-size: var(--p-font);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: var(--p-small-font);
+    color: var(--second-color);
+    background-color: var(--second-bg-color);
 }
 
-@media screen and (max-width: 767px) {
-
-    /* Estilize o menu para ocupar a largura total */
+/* ============================= */
+/* RESPONSIVO                    */
+/* ============================= */
+@media (max-width: 768px) {
     .menu {
+        flex-wrap: wrap;
         justify-content: center;
+        background-color: var(--bg-color);
+        padding: 1rem;
     }
-
-    /* Reduza o tamanho do texto do menu */
-    .menu a {
-        font-size: 16px;
+    
+    .center {
+        flex-direction: column;
+        gap: 1rem;
+        position: relative; /* Remove fixed no mobile para facilitar */
     }
-
-    /* Ajuste o tamanho da logo */
-    .logo {
-        max-width: 150px;
-    }
-
-    /* Ajuste o posicionamento do texto na seção inicial */
-    .home-text {
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
-
-/* Dispositivos menores que 576px (smartphones em modo retrato) */
-@media screen and (max-width: 575px) {
-
-    /* Reduza o tamanho da fonte do cabeçalho */
-    main h1 {
-        font-size: 3rem;
-    }
-
-    /* Reduza o tamanho do texto de descrição da seção inicial */
-    main h3 {
-        font-size: 2rem;
-    }
-
-    /* Ajuste o posicionamento do texto na seção inicial */
-    .home-text {
-        top: 25%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-
-    /* Ajuste o tamanho da logo para dispositivos móveis */
-    .logo {
-        max-width: 120px;
-    }
-
-    /* Ajuste o espaçamento entre os itens do menu para dispositivos móveis */
-    .menu a {
-        margin: 0 10px;
-    }
-
-}
-
-/* Estilos para dispositivos menores que 992px (tablets e dispositivos móveis em modo paisagem) */
-@media screen and (max-width: 991px) {
-
-    /* Ajuste o posicionamento do texto na seção inicial */
-    .home-text {
-        top: 25%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
-
-/* Estilos para dispositivos menores que 768px (dispositivos móveis em modo retrato) */
-@media screen and (max-width: 767px) {
-
-    /* Ajuste o posicionamento do texto na seção inicial */
-    .home-text {
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
-
-/* Estilos para dispositivos menores que 576px (smartphones em modo retrato) */
-@media screen and (max-width: 575px) {
-
-    /* Ajuste o posicionamento do texto na seção inicial */
-    .home-text {
-        top: 15%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    
+    .home {
+        padding-top: 2rem;
     }
 }
